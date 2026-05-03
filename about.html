@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Documentation | Macro Terminal</title>
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700&family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg: #0a0a0a;
+            --tile: #141414;
+            --border: #262626;
+            --text: #888;
+            --bright: #efefef;
+            --accent: #2e62ff;
+            --green: #00ff66;
+            --red: #ff3e3e;
+            --gold: #f3a007;
+            --mono: 'JetBrains Mono', monospace;
+        }
+
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+
+        body {
+            background-color: var(--bg);
+            color: var(--text);
+            font-family: 'Inter', sans-serif;
+            padding: 15px;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            line-height: 1.6;
+        }
+
+        .main-header, .main-footer {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 12px 20px;
+            background: var(--tile);
+            border: 1px solid var(--border);
+            font-family: var(--mono);
+            font-size: 0.75rem;
+            border-radius: 4px;
+        }
+
+        .main-header { margin-bottom: 25px; flex-wrap: wrap; gap: 10px; }
+        .main-footer { margin-top: 50px; padding: 20px; flex-wrap: wrap; gap: 10px; }
+
+        .brand h1 { font-size: 1rem; display: inline; margin-right: 10px; color: var(--bright); }
+        nav a, .footer-nav a { color: var(--bright); text-decoration: none; margin-left: 15px; transition: color 0.2s; white-space: nowrap; }
+        nav a:hover, .footer-nav a:hover { color: var(--accent); }
+
+        .container { max-width: 1000px; margin: 0 auto; width: 100%; }
+
+        .hero { margin-bottom: 40px; border-bottom: 1px solid var(--border); padding-bottom: 20px; }
+        .hero h2 { font-family: var(--mono); color: var(--bright); font-size: 1.8rem; margin-bottom: 10px; }
+
+        .section-title {
+            font-family: var(--mono);
+            color: var(--accent);
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            margin: 40px 0 20px 0;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        .section-title::after { content: ""; height: 1px; flex: 1; background: var(--border); }
+
+        .grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 20px; margin-bottom: 40px; }
+        @media (max-width: 768px) { .grid { grid-template-columns: 1fr; } }
+
+        .tile { background: var(--tile); border: 1px solid var(--border); padding: 25px; border-radius: 4px; }
+
+        .term-group { margin-bottom: 30px; }
+        .term-item { margin-bottom: 15px; padding-left: 15px; border-left: 1px solid var(--border); }
+        .term-name { color: var(--bright); font-family: var(--mono); font-weight: 700; font-size: 0.9rem; display: block; }
+        .term-def { font-size: 0.85rem; color: var(--text); }
+
+        .math { background: #000; padding: 15px; border-radius: 4px; font-family: var(--mono); color: var(--green); font-size: 0.85rem; margin: 15px 0; border-left: 3px solid var(--green); }
+        .prop-badge { display: inline-block; background: rgba(46, 98, 255, 0.1); color: var(--accent); border: 1px solid var(--accent); padding: 2px 8px; font-size: 0.6rem; font-family: var(--mono); border-radius: 2px; margin-bottom: 10px; }
+    </style>
+</head>
+<body>
+
+<header class="main-header">
+    <div class="brand">
+        <h1>MACRO TERMINAL <span style="font-weight:400; font-size: 0.7rem; color: var(--accent);">DOCS</span></h1>
+        <span class="author" style="font-size: 0.7rem; color: #555; margin-left: 10px;">by Amaanullah Bhatti</span>
+    </div>
+    <nav>
+        <a href="index.html">← BACK TO TERMINAL</a>
+    </nav>
+</header>
+
+<div class="container">
+    <section class="hero">
+        <div class="prop-badge">QUANTITATIVE FRAMEWORK V1.2</div>
+        <h2>System Methodology</h2>
+        <p>The Macro Terminal is a proprietary cross-asset factor model. It transforms raw economic indicators into standardized Z-scores to project asset class expectancy and optimize portfolio weights via a non-linear softmax engine.</p>
+    </section>
+
+    <h2 class="section-title">Macro Glossary & Definitions</h2>
+
+    <div class="grid">
+        <!-- GROUP 1: INPUTS -->
+        <div class="term-group">
+            <h3>01. Input Variables</h3>
+            <div class="term-item">
+                <span class="term-name">Fed Funds Rate (r)</span>
+                <span class="term-def">The target interest rate set by the central bank. It represents the nominal cost of liquidity in the financial system.</span>
+            </div>
+            <div class="term-item">
+                <span class="term-name">Neutral r*</span>
+                <span class="term-def">The "equilibrium" interest rate where the economy is at full employment with stable inflation. It is the pivot point for policy stance.</span>
+            </div>
+            <div class="term-item">
+                <span class="term-name">Inflation (CPI)</span>
+                <span class="term-def">The rate of increase in prices. High inflation erodes bond returns but can act as a tailwind for commodities.</span>
+            </div>
+        </div>
+
+        <!-- GROUP 2: ENGINE -->
+        <div class="term-group">
+            <h3>02. Quantitative Engine</h3>
+            <div class="term-item">
+                <span class="term-name">Z-Score Normalization</span>
+                <span class="term-def">A statistical measure that describes a value's relationship to the mean of a group of values, measured in terms of standard deviations.</span>
+            </div>
+            <div class="term-item">
+                <span class="term-name">Monetary Stance / Gap</span>
+                <span class="term-def">The difference between the actual rate (r) and the neutral rate (r*). If r > r*, policy is "restrictive."</span>
+            </div>
+            <div class="term-item">
+                <span class="term-name">Interaction Term</span>
+                <span class="term-def">A variable that captures the compound effect of two factors (e.g., Growth × Inflation) to model non-linear market behaviors.</span>
+            </div>
+        </div>
+
+        <!-- GROUP 3: REGIMES -->
+        <div class="term-group">
+            <h3>03. Market Regimes</h3>
+            <div class="term-item">
+                <span class="term-name">Expansion (Goldilocks)</span>
+                <span class="term-def">Positive growth with manageable inflation. Typically the optimal environment for Equities.</span>
+            </div>
+            <div class="term-item">
+                <span class="term-name">Stagflation</span>
+                <span class="term-def">The combination of stagnant economic growth and high inflation. Highly punitive for traditional 60/40 portfolios.</span>
+            </div>
+            <div class="term-item">
+                <span class="term-name">Overheating</span>
+                <span class="term-def">Growth is significantly above trend, leading to demand-pull inflation and imminent central bank tightening.</span>
+            </div>
+        </div>
+
+        <!-- GROUP 4: ALLOCATION -->
+        <div class="term-group">
+            <h3>04. Portfolio Math</h3>
+            <div class="term-item">
+                <span class="term-name">Softmax Optimization</span>
+                <span class="term-def">A mathematical function that turns a vector of "expectancy scores" into a probability distribution (portfolio weights) that sums to 100%.</span>
+            </div>
+            <div class="term-item">
+                <span class="term-name">Asset Expectancy</span>
+                <span class="term-def">The modelled "attractiveness" of an asset based on its historical beta to the current Z-score factor loadings.</span>
+            </div>
+            <div class="term-item">
+                <span class="term-name">Convexity (Fixed Income)</span>
+                <span class="term-def">The measure of the curvature in the relationship between bond prices and bond yields. It indicates how bond price sensitivity changes as yields move.</span>
+            </div>
+        </div>
+    </div>
+
+    <section class="tile">
+        <h3>Proprietary Allocation Logic</h3>
+        <p>The final weight $w$ for any asset $i$ is determined by the Softmax of the Factor Matrix $R$:</p>
+        <div class="math">R_i = \beta_{g}Z_{g} + \beta_{\pi}Z_{\pi} + \beta_{L}Z_{L} + \text{Interaction Terms}</div>
+        <p style="font-size: 0.8rem;">Where $Z$ represents the Z-scored macro factor and $\beta$ represents the sensitivity coefficient calibrated to institutional benchmarks.</p>
+    </section>
+
+</div>
+
+<footer class="main-footer">
+    <div class="footer-left">© 2026 Amaanullah Bhatti | All Rights Reserved</div>
+    <nav class="footer-nav">
+        <a href="index.html">TERMINAL</a>
+        <a href="https://linkedin.com/in/amaanullah-bhatti" target="_blank">LINKEDIN ↗</a>
+        <a href="https://github.com/amaanullah21" target="_blank">GITHUB ↗</a>
+    </nav>
+</footer>
+
+</body>
+</html>
