@@ -26,7 +26,7 @@ Macro Terminal V4 utilizes a **Non-Linear Factor Matrix** to transform raw econo
 3. **Weight Optimization:** Weights normalized via Softmax function for optimal factor loading.
 4. **Causal Narrative:** Generates a real-time linguistic summary of the model's inference.
 
-## Live Demo : [Click Here]()
+#### Live Demo : [Click Here](https://amaanullah21.github.io/macro-terminal/)
 
 ---
 **Developed by [Amaanullah Bhatti](https://github.com/amaanullah21)**
